@@ -29,6 +29,24 @@
     bottom: 0; // fix for 3.3.1
 }
 
+.navbar-inverse {
+  color: #9999a3;
+  background: #3b3b3f;
+  border-color: #3b3b3f;
+  height: 60px;
+  font-family: "GE Inspira Sans", sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+
+  a {
+    color: #9999a3;
+  }
+
+  svg {
+    margin-right: 5px;
+  }
+}
+
 .modal-lg {
     width: 960px;
 }
@@ -301,18 +319,20 @@ body {
     margin-bottom: 50px;
 
     .dashboard-logo {
-        background: url(@dash-header-logo-url) no-repeat center center;
+        /*background: url(@dash-header-logo-url) no-repeat center center;*/
         background-size: contain;
         display: inline-block;
         position: absolute;
-        left: @dash-header-logo-left;
-        top: @dash-header-logo-top;
-        width: @dash-header-logo-width;
-        height: @dash-header-logo-height;
+        left: 15px;
+        top: 6px;
+        /*left: @dash-header-logo-left;*/
+        /*top: @dash-header-logo-top;*/
+        /*width: @dash-header-logo-width;*/
+        /*height: @dash-header-logo-height;*/
 
 
         &.dashboard-logo-inverse {
-            background-image: url(@dash-header-logo-inverse-url);
+            /*background-image: url(@dash-header-logo-inverse-url);*/
         }
     }
 

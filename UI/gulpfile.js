@@ -98,7 +98,7 @@ gulp.task('serve', ['build'], function() {
     /*
      * Location of your backend server
      */
-    var proxyTarget = config.api || 'http://localhost:8080';
+    var proxyTarget = config.api || 'http://192.168.99.100:9090';
 
     var proxy = httpProxy.createProxyServer({
         target: proxyTarget
@@ -264,7 +264,7 @@ gulp.task('html', function() {
         // replace inject:js with script references to all the files in the following sources
         .pipe(inject(gulp.src(
     		!!argv.prod ? ['src/app/app.js'] : jsFiles)
-    		.pipe(order(['app/app.js', 'app/dashboard/core/module.js', 'app/**/*.js', 'components/**/*.js'])), 
+    		.pipe(order(['app/app.js', 'app/dashboard/core/module.js', 'app/**/*.js', 'components/**/*.js'])),
     		{ name: 'hygieia', ignorePath: 'src', addRootSlash: false }))
 
         // replace custom placeholders with our configured values
