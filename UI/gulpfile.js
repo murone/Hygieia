@@ -88,7 +88,15 @@ gulp.task('default', ['build']);
 
 // moves everything to the build folder
 gulp.task('build', function(callback) {
-    runSequence('clean', ['assets', 'themes', 'fonts', 'js', 'views', 'test-data'], 'html', callback);
+    runSequence('clean', ['assets', 'themes', 'fonts', 'js', 'views', 'test-data', 'polymer'], 'html', callback);
+});
+
+gulp.task('polymer', function(cb){
+    exec('cd dist && bower install && bower udpate', function(err, stdout, stderr){
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
 });
 
 // run the build task, start up a browser, then
