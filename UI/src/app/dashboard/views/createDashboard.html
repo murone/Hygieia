@@ -14,12 +14,12 @@
 
         <form-group input="selectedTemplate" errors="{required: 'Please select a template'}">
             <select name="selectedTemplate"
+                    style="display:none;"
                     class="form-control"
                     ng-model="ctrl.selectedTemplate"
                     ng-options="item.name for item in ctrl.availableTemplates track by item.value"
                     required>
-                <option value="" disabled>Select a template</option>
-            </select>
+            </input>
         </form-group>
 
         <form-group input="dashboardTitle" errors="{required: 'Dashboard title is required', minlength: 'Min length of 6 characters', maxlength: 'Max length of 50 characters', createError: 'Error creating dashboard. Change title and try again.'}">

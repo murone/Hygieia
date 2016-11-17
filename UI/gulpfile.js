@@ -24,7 +24,7 @@ var browserSync = require('browser-sync'),
     runSequence = require('run-sequence'),
     wiredep = require('wiredep'),
     argv = require('yargs').argv,
-    exec = require('gulp-exec'),
+    exec = require('child_process').exec,
 
 
     // some gulp config values
@@ -93,11 +93,15 @@ gulp.task('build', function(callback) {
 });
 
 gulp.task('polymer', function(cb){
-    exec('cd dist && bower install && bower udpate', function(err, stdout, stderr){
-        console.log(stdout);
-        console.log(stderr);
-        cb(err);
-    });
+	console.log('called Polymer task');
+	exec('cd dist', function (err, stdout, stderr) {
+		console.log(__dirname);
+	    exec('cd dist && bower install && bower udpate', function(err, stdout, stderr){
+	        console.log(stdout);
+	        console.log(stderr);
+	        cb(err);
+	    });
+	});
 });
 
 // run the build task, start up a browser, then
