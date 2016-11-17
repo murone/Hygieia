@@ -26,8 +26,7 @@ coverage
 .grunt
 
 # Distributable artifacts
-dist/*
-!dist/bower.json
+dist
 
 # node-waf configuration
 .lock-wscript
