@@ -24,6 +24,7 @@ var browserSync = require('browser-sync'),
     runSequence = require('run-sequence'),
     wiredep = require('wiredep'),
     argv = require('yargs').argv,
+    exec = require('gulp-exec'),
 
 
     // some gulp config values
@@ -88,7 +89,7 @@ gulp.task('default', ['build']);
 
 // moves everything to the build folder
 gulp.task('build', function(callback) {
-    runSequence('clean', ['assets', 'themes', 'fonts', 'js', 'views', 'test-data', 'polymer'], 'html', callback);
+    runSequence('clean', ['assets', 'themes', 'fonts', 'js', 'views', 'test-data'], 'polymer', 'html', callback);
 });
 
 gulp.task('polymer', function(cb){
