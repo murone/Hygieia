@@ -98,7 +98,8 @@ gulp.task('serve', ['build'], function() {
     /*
      * Location of your backend server
      */
-    var proxyTarget = config.api || 'http://192.168.99.100:9090';
+
+    var proxyTarget = config.api || 'http://localhost:9090';
 
     var proxy = httpProxy.createProxyServer({
         target: proxyTarget
