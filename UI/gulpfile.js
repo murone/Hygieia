@@ -89,13 +89,13 @@ gulp.task('default', ['build']);
 
 // moves everything to the build folder
 gulp.task('build', function(callback) {
-    runSequence('clean', ['assets', 'themes', 'fonts', 'js', 'views', 'test-data'], 'polymer', 'html', callback);
+    runSequence('clean', ['assets', 'themes', 'fonts', 'js', 'views', 'test-data'], 'html', 'polymer', callback);
 });
 
 gulp.task('polymer', function(cb){
-	exec('echo \'{"name":"devops-dashboard","version":"0.0.0","dependencies":{"docker-memory-chart":"git@github.build.ge.com:210071205/docker-memory-chart.git"}}\' > dist/bower.json', function () {
+	exec('echo {"name":"devops-dashboard","version":"0.0.0","dependencies":{"docker-memory-chart":"git@github.build.ge.com:210071205/docker-memory-chart.git"}} > dist/bower.json', function () {
 		exec('cd dist', function (err, stdout, stderr) {
-		    exec('bower install && bower update', function(err, stdout, stderr){
+		    exec('cd dist && bower install && bower update', function(err, stdout, stderr){
 		        console.log(stdout);
 		        console.log(stderr);
 		        cb(err);
